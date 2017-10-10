@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk",
+    "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "D:\\sdk\\ndk\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dG:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "libraries": {
+    "helloJni-release-armeabi-v7a": {
+      "buildCommand": "D:\\sdk\\ndk\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dG:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\lib G:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libhelloJni.so",
+      "toolchain": "toolchain-armeabi-v7a",
+      "abi": "armeabi-v7a",
+      "artifactName": "helloJni",
+      "files": [
+        {
+          "src": "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\helloJni.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector\" \"-no-canonical-prefixes\" \"-march\u003darmv7-a\" \"-mfpu\u003dvfpv3-d16\" \"-mfloat-abi\u003dsoftfp\" \"-mthumb\" \"-Os\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fno-strict-aliasing\" \"-finline-limit\u003d64\" \"-IG:/work/hook/app/vhook/demoHookPlugin/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-ID:/sdk/ndk/platforms/android-21/arch-arm/usr/include\""
+        }
+      ],
+      "output": "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a\\libhelloJni.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-armeabi-v7a": {
+      "cCompilerExecutable": "D:\\sdk\\ndk\\toolchains\\arm-linux-androideabi-4.8\\prebuilt\\windows-x86_64\\bin\\arm-linux-androideabi-gcc"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk",
+    "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "D:\\sdk\\ndk\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dG:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "libraries": {
+    "helloJni-release-x86": {
+      "buildCommand": "D:\\sdk\\ndk\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dG:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dG:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\lib G:/work/hook/app/vhook/demoHookPlugin/build/intermediates/ndkBuild/release/obj/local/x86/libhelloJni.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "helloJni",
+      "files": [
+        {
+          "src": "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\src\\main\\jni\\helloJni.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-IG:/work/hook/app/vhook/demoHookPlugin/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-ID:/sdk/ndk/platforms/android-21/arch-x86/usr/include\""
+        }
+      ],
+      "output": "G:\\work\\hook\\app\\vhook\\demoHookPlugin\\build\\intermediates\\ndkBuild\\release\\obj\\local\\x86\\libhelloJni.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cCompilerExecutable": "D:\\sdk\\ndk\\toolchains\\x86-4.8\\prebuilt\\windows-x86_64\\bin\\i686-linux-android-gcc"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}
