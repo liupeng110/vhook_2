@@ -111,17 +111,44 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
         initMenu();
         new HomePresenterImpl(this).start();
         Log.i("yahfa ","home 的oncreate中-----");
+
+        Log.i("yahfa ","home 的oncreate中-----"+mLaunchpadAdapter.getItemCount());
+
+        //每次都重新复制  防止plugin未更新
         copyFileFromAssets("plugin.apk", Environment.getExternalStorageDirectory()+"/");//分别拷贝进去
         copyFileFromAssets("demo.apk",Environment.getExternalStorageDirectory()+"/");
 
-        mUiHandler.postDelayed(()->{
-                   Log.i("homeActivityz中","安装demo apk。。。");
-                  insertPlugin();
-               },2500);
-
-
         server=new ServerLastly();
         new Thread(server).start();
+
+        mUiHandler.postDelayed(()->{
+            Log.i("homeActivityz中","获取已安装数量");
+            try {
+                Log.i("yahfa ","home 的oncreate中-----"+mLaunchpadAdapter.getItemCount());
+                Log.i("yahfa ","home 的oncreate中-----"+mLaunchpadAdapter.getList().size());
+                if (mLaunchpadAdapter.getItemCount()>1){
+                    for (int a=0;a<mLaunchpadAdapter.getList().size();a++){
+                        AppData data=mLaunchpadAdapter.getList().get(0);
+                        mPresenter.deleteApp(data);//如果有全部卸载
+                    }
+                }
+
+            }catch (Throwable t){t.printStackTrace();}
+                mUiHandler.postDelayed(()->{
+                    Log.i("homeActivityz中","安装demo apk。。。");
+                    insertPlugin();
+                },2500);
+
+        },2500);
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -140,25 +167,7 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
          * 我在activity的onCreate()中创建示例，如果将连接代码 写在构造方法中，服务端会一直等待客户端连接，界面没有去描绘，会一直出现白屏。
          * 直到客户端连接上了，界面才会描绘出来。原因是构造方法阻塞了主线程，要另开一个线程。在这里我将它写在了run()中。
          */
-        ServerLastly(){//Handler handler
-//            this.handler=handler;
-//        Log.i(TAG, "Server=======打开服务=========");
-//        try {
-//            server=new ServerSocket(8888);
-//            client=server.accept();
-//            Log.i(TAG, "Server=======客户端连接成功=========");
-//             InetAddress inetAddress=client.getInetAddress();
-//             String ip=inetAddress.getHostAddress();
-//            Log.i(TAG, "===客户端ID为:"+ip);
-//            os=new PrintWriter(client.getOutputStream());
-//            is=new BufferedReader(new InputStreamReader(client.getInputStream()));
-//
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-        }
-
+        ServerLastly(){ }
         //发数据
         public void send(String data){
             if (os!=null) {
@@ -168,8 +177,7 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
         }
 
         //接数据
-        @Override
-        public void run() {
+        @Override public void run() {
             Log.i(TAG, "yahfa Server=======打开服务=========");
             try {
                 server=new ServerSocket(4561);
@@ -190,6 +198,7 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
             while(true){
                 try {
                     result=is.readLine();
+                    if (result==null){continue;}
                     Log.i(TAG, "yahfa 服务端接到的数据为："+result);
                     if(result.equals("6")){
                         need_static=true;
@@ -200,9 +209,9 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
                                 startActivity(intent);
                             }
                         });
+                    }else if (result.equals("finish")){
+                        close();
                     }
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

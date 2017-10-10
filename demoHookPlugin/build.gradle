@@ -39,7 +39,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    compile 'xiaofei.library:hermes-eventbus:0.1.1'
+//    compile 'xiaofei.library:hermes-eventbus:0.1.1'
 }
 
 android.applicationVariants.all { variant ->
